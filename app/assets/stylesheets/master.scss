@@ -1,12 +1,19 @@
 .navbar {
-  font-family: "Helvetica Neue", Helvetica !important;
-  font-weight: 200 !important;
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 200;
   box-shadow: 0px 1px 3px #2a2a2a;
-  background: image_url('dark_wood.png !important');
+  background: image_url('dark_wood.png');
+  font-color: white;
 }
-.navbar-inverse a.navbar-brand {
-  font-family: "Helvetica Neue", Helvetica !important;
-  font-weight: 100 !important;
+.navbar-inverse {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  font-color: white;
+}
+
+.navbar-brand {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
   font-color: white;
 }
 .hero {
@@ -16,4 +23,11 @@
   -o-background-size: cover;
   background-size: cover;;
   height: 370px;
+}
+h1, h2, h3, h4, h5, h6, .navbar {
+  margin: 0;
+}
+.frosty {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
 }
