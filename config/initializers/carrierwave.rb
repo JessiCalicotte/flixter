@@ -1,11 +1,12 @@
-CarrierWave.configure do |config|
-  config.storage    = :fog
-  config.aws_bucket = ENV["flixterjcalicot"]
-  config.aws_acl    = "public_read"
+  CarrierWave.configure do |config|
+  config.storage    = :aws["flixterjcalicot"]
+  config.aws_acl    = "public-read"
 
   config.aws_credentials = {
-    access_key_id:     ENV["AKIASZV6FXWXLEIUOXJV"],        # required
-    secret_access_key: ENV["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"],        # required
-    region:            ENV["US East(N.Virgina"]
+      access_key_id:     ENV["AWS_ACCESS_KEY"],
+      secret_access_key: ENV["AWS_SECRET_KEY"],
+      region:            ENV["us-east-2"]
   }
 end
+
+
