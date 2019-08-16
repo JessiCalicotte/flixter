@@ -1,7 +1,0 @@
-# config/application.yml
-GEOCODER_API_KEY: "AIzaSyDFIvXc3k6vjlplMIYKMkw3zPjBtFnzynY"
-GMAIL_ADDRESS: "Orgkleen@gmail.com"
-GMAIL_PASSWORD: "Hyatt111916"
-AWS_ACCESS_KEY: "AKIASZV6FXWXLEIUOXJV"
-AWS_SECRET_KEY: "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"
-AWS_BUCKET: "flixterjcalicot"
