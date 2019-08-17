@@ -10,7 +10,7 @@ class LessonsController < ApplicationController
 
   def require_enrollment_for_current_lesson
     unless current_user.enrolled_in?(current_lesson.section.course)
-      redirect_to courses_path, alert: 'Must be enrolled to access'
+      redirect_to root_url, alert: 'Must be enrolled to access'
     end
   end
 
