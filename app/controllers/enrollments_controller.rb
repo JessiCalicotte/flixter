@@ -18,14 +18,18 @@ class EnrollmentsController < ApplicationController
       description: 'Flixter Premo Content',
       currency: 'usd'
     )
+
   redirect_to course_path(current_course)
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to root_path
   end
+
+
     private
 
   def current_course
     @current_course ||= Course.find(params[:course_id])
   end
+  
 end
