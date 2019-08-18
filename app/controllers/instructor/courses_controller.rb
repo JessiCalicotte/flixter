@@ -5,7 +5,7 @@ class Instructor::CoursesController < ApplicationController
   def new
     @course = Course.new
   end
-
+x
   def create
     @course = current_user.courses.create(course_params)
     if @course.valid?
