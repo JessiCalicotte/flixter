@@ -76,6 +76,8 @@ gem 'ranked-model'
 gem 'figaro'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
+gem "font-awesome-rails"
+
 
 
 
