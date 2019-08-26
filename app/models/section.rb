@@ -3,5 +3,5 @@ class Section < ApplicationRecord
     has_many :lessons
 
     include RankedModel
-    ranks :row_order, with_same: :section_id
+    ranks :row_order, with_same: :id
 end
