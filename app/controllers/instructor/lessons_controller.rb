@@ -2,7 +2,12 @@ class Instructor::LessonsController < ApplicationController
   before_action :authenticate_user!
   before_action :require_authorized_for_current_section, only: [:create]
   before_action :require_authorized_for_current_lesson, only: [:update]
+  before_action :require_authorized_for_current_lesson, only: [:show]
   skip_before_action :verify_authenticity_token
+
+   def show    
+    @lesson = current_lesson    
+  end
 
   def create
     @lesson = current_section.lessons.create(lesson_params)
@@ -22,13 +27,7 @@ class Instructor::LessonsController < ApplicationController
 
   def require_authorized_for_current_lesson
     if current_lesson.section.course.user != current_user
-      render plain: 'Unauthorized', status: :unauthorized
-    end
-  end
-
-  def require_authorized_for_current_section
-    if current_section.course.user != current_user
-      return render plain: 'Unauthorized', status: :unauthorized
+      render plain: 'You need to be enrolled to access lessons', status: :unauthorized
     end
   end
 
