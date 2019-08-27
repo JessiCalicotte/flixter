@@ -5,8 +5,21 @@ class Instructor::LessonsController < ApplicationController
   def show
     @lesson = current_lesson
   end
+  def create
+    @lesson = current_section.lessons.create(lesson_params)
+    redirect_to instructor_course_path(current_section.course)
+  end
 
+  def update
+      current_lesson.update_attributes(lesson_params)
+      render plain: 'updated!'
+  end
   private
+
+      def current_lesson
+    @current_lesson ||= Lesson.find(params[:id])
+  end
+
 
  def require_authorized_for_current_lesson
     if !current_user.enrolled_in?(current_lesson.section.course)
@@ -18,6 +31,10 @@ class Instructor::LessonsController < ApplicationController
   def current_section
     @current_section ||= Lesson.find(params[:id])
   end
+  def lesson_params
+    params.require(:lesson).permit(:title, :subtitle, :video, :row_order_postion)
+  end
 end
+
 
   
