@@ -34,7 +34,7 @@
   <%= link_to 'Preview As Student...', course_path(current_course), class: 'btn btn-warning float-right' %>
   <br class="clr" />
     <div class="text-center">
-    <%= link_to 'Add a new section...', new_instructor_course_section_path(course), class: 'btn btn-primary btn-lg' %>
+    <%= link_to 'Add a new section...', instructor_course_sections_path(current_course), class: 'btn btn-primary btn-lg' %>
 
 
   <div class="text-center">
@@ -51,7 +51,7 @@
           <span class="fa fa-ellipsis-v"></span>
           <%= section.title %>
         </div>
-        <%= link_to 'New Lesson', new_instructor_section_lessons_path(section), class: 'float-right btn btn-primary btn-sm' %>
+        <%= link_to 'New Lesson', new_instructor_section_lessons_path_url(section), class: 'float-right btn btn-primary btn-sm' %>
         <br class="clr" />
         <br class="clr" />
 

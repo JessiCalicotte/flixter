@@ -14,20 +14,14 @@ class Instructor::SectionsController < ApplicationController
 
   private
 
-  def require_authorized_for_current_section
+def require_authorized_for_current_section
     if current_section.course.user != current_user
-      render plain: "Unauthorized", status: :unauthorized
+      return render plain: 'You need to be enrolled to access the section', status: :unauthorized
     end
   end
-
+  
   def current_section
     @current_section ||= Section.find(params[:id])
-  end
-
-  def require_authorized_for_current_course
-    if current_course.user != current_user
-      render plain: "Unauthorized", status: :unauthorized
-    end
   end
 
   helper_method :current_course
