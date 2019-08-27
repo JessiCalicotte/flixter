@@ -16,7 +16,7 @@ class Instructor::CoursesController < ApplicationController
   end
 
   def show
-  @course = Course.find(params[:id])
+      @section = Section.new
   end
 
   private
