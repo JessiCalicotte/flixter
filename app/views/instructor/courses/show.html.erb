@@ -51,7 +51,7 @@
           <span class="fa fa-ellipsis-v"></span>
           <%= section.title %>
         </div>
-        <%= link_to 'New Lesson', new_instructor_section_lessons_path_url(section), class: 'float-right btn btn-primary btn-sm' %>
+        <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'float-right btn btn-primary btn-sm' %>
         <br class="clr" />
         <br class="clr" />
 
@@ -85,17 +85,17 @@
     <div class="row">
     <div class="col-sm-4 col-12 text-center">
       <span class="badge badge-default">
-    <%= number_to_currency @course.cost %>
+    <%= number_to_currency current_course.cost %>
     </span>
-    <% if current_user && current_user == @course.user %>
+    <% if current_user && current_user == current_course.user %>
       <br />
       <br />
-      <%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large' %>
+      <%= link_to 'Administer', instructor_course_path(current_course), class: 'btn btn-danger btn-large' %>
     <% end %>
   </div>
 </div>
   <div class="col-sm-8 col-12">
-    <%= @course.description %>
+    <%= current_course.description %>
 
 
 <!-- Modal -->
@@ -108,7 +108,7 @@
         </button>
         <h4 class="modal-title" id="newSectionModalLabel">Add a new section</h4>
       </div>
-      <%= simple_form_for @section, url: instructor_course_sections_path(current_course) do |f| %>
+      <%= simple_form_for @section, url: instructor_course_path(current_course) do |f| %>
         <div class="modal-body">
           <%= f.input :title %>
         </div>
