@@ -3,11 +3,7 @@ class Instructor::LessonsController < ApplicationController
   before_action :require_authorized_for_current_lesson, only: [:update]
   before_action :require_authorized_for_current_lesson, only: [:show]
   before_action :require_authorized_for_current_lesson, only: [:create]
-  skip_before_action :verify_authenticity_token
-
-   def show    
-    @lesson = current_lesson    
-  end
+  
 
   def create
     @lesson = current_section.lessons.create(lesson_params)
@@ -19,7 +15,7 @@ class Instructor::LessonsController < ApplicationController
     current_lesson.update_attributes(lesson_params)
     render plain: 'updated!'
   end
-
+end
   private
 
   def current_lesson
