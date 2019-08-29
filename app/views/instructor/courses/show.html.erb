@@ -1,10 +1,10 @@
 <script>
-  $(function() {
-    $('.new-lesson-button').click(function( event ) {
-      alert( $(event.target).data('lesson-url');
-        alert( lessonUrl );
-        $('#newLessonForm').attr('action', lessonUrl);
-    });
+      $(function() {
+        $('.new-lesson-button').click(function( event ) {
+      var lessonUrl = $( event.target).data('lesson-url');
+      $('#newLessonForm').attr('action', lessonUrl);
+    }); 
+
 
     $('.lessons').sortable({
       update: function( event, ui ) {
@@ -16,6 +16,7 @@
         });
       }
     });
+
 
 
     $('.sections').sortable({
@@ -41,6 +42,8 @@
   <br class="clr" />
     <div class="text-center">
     <%= link_to 'Add a new section...', instructor_course_sections_path(current_course), class: 'btn btn-primary btn-lg' %>
+  </div>
+</div>
 
 
   <div class="text-center">
@@ -59,12 +62,10 @@
         </div>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary btn-lg float-right new-lesson-button" data-toggle="modal" data-target="#newLessonModal" data-lesson-url="<%= instructor_section_lessons_path(section) %>">
- 
           New Lesson
         </button>
         <br class="clr" />
         <br class="clr" />
-
         <ul class="lessons">
           <% section.lessons.rank(:row_order).each do |lesson| %>
             <li data-update-url="<%= instructor_lesson_path(lesson) %>">
@@ -92,17 +93,6 @@
   </ul>
 </div>
     <div class="row">
-    <div class="col-sm-4 col-12 text-center">
-      <span class="badge badge-default">
-    <%= number_to_currency current_course.cost %>
-    </span>
-    <% if current_user && current_user == current_course.user %>
-      <br />
-      <br />
-      <%= link_to 'Administer', instructor_course_path(current_course), class: 'btn btn-danger btn-large' %>
-    <% end %>
-  </div>
-</div>
   <div class="col-sm-8 col-12">
     <%= current_course.description %>
 
@@ -120,7 +110,6 @@
       <%= simple_form_for @section, url: instructor_course_sections_path(current_course) do |f| %>
         <div class="modal-body">
           <%= f.input :title %>
-        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <%= f.submit "Add a section", class: 'btn btn-primary' %>
@@ -143,23 +132,25 @@
       </div>
       <div class="modal-body">
        <br />
-<div class="booyah-box col-10 offset-1">
-    <%= simple_form_for @lesson, url: "#", html: {id: 'newLessonForm' } do |f| %>
-    <div class="modal-body">
-    <%= f.input :title %>
-    <%= f.input :subtitle %>
-    <%= f.input :video%>
+<form accept-charset="UTF-8" action="#" class="simple_form new_lesson" enctype="multipart/form-data" id="newLessonForm" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" /><input name="authenticity_token" type="hidden" value="cWn+DdJbIjqZajnzD956Ox4jjPXsnn7178AzOldv0XI=" /></div>
+        <div class="modal-body">
+            <div class="input string optional lesson_title"><label class="string optional control-label" for="lesson_title">Title</label><input class="string optional form-control" id="lesson_title" name="lesson[title]" type="text" /></div>
+            <div class="input string optional lesson_subtitle"><label class="string optional control-label" for="lesson_subtitle">Subtitle</label><input class="string optional form-control" id="lesson_subtitle" name="lesson[subtitle]" type="text" /></div>
+            <div class="input file optional lesson_video"><label class="file optional control-label" for="lesson_video">Video</label><input class="file optional form-control" id="lesson_video" name="lesson[video]" type="file" /></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input class="btn btn-primary" name="commit" type="submit" value="Add the lesson" />
+        </div>
+</form>
     <br />
-    <%= f.submit "Create", class: 'btn btn-success' %>
     <br />
-    <br />
-  <% end %>
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <%= f.submit "Add the lesson", class: 'btn btn-primary' %>
       </div>
-      <% end %>
+       <% end %>
     </div>
   </div>
 </div>
