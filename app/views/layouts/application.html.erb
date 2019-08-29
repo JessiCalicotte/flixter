@@ -58,7 +58,7 @@
       <div class="col-12 col-sm-3">
         <b>Teachers</b>
         <br />
-        <%= link_to 'Teach a Course', new_user_registration_path %>
+        <%= link_to 'Teach a Course', new_user_course_path %>
         <br />
     <%= link_to 'My Dashboard', dashboard_path %>
       </div>
@@ -69,7 +69,7 @@
         <br />
         <%= link_to 'Careers', '#' %>
         <br />
-        <%= link_to 'Privacy Policy', '#' %>
+        <%= link_to 'Privacy Policy', 'privacy_path' %>
       </div>
       <div class="col-12 col-sm-3">
         <b>Contact</b>
@@ -85,11 +85,14 @@
         <br />
         <br />
         <%= link_to 'https://github.com/JessiCalicotte' do %>
-         <span class="fa fa-github-square fa-2x social-button"></span>
-             <% end %>
         <span class="fa fa-github-square fa-2x social-button"></span>
+        <% end %>
+        <%= link_to 'https://www.facebook.com/' do %>
         <span class="fa fa-facebook-square fa-2x social-button"></span>
+        <% end %>
+        <%= link_to 'https://twitter.com/?lang=en' do %>
         <span class="fa fa-twitter-square fa-2x social-button"></span>
+        <% end %>
       </div>
     </div>
     </div>
@@ -98,4 +101,3 @@
     <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
   </body>
 </html> 
-
