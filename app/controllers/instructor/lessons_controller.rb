@@ -1,15 +1,10 @@
 class Instructor::LessonsController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_authorized_for_current_section, only: [:create]
   before_action :require_authorized_for_current_lesson, only: [:update]
   before_action :require_authorized_for_current_lesson, only: [:show]
   before_action :require_authorized_for_current_lesson, only: [:create]
   skip_before_action :verify_authenticity_token
 
-       def new
-           @lesson = Lesson.new
-        end
-    
    def show    
     @lesson = current_lesson    
   end
