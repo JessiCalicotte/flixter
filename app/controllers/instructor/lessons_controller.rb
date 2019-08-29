@@ -3,8 +3,13 @@ class Instructor::LessonsController < ApplicationController
   before_action :require_authorized_for_current_section, only: [:create]
   before_action :require_authorized_for_current_lesson, only: [:update]
   before_action :require_authorized_for_current_lesson, only: [:show]
+  before_action :require_authorized_for_current_lesson, only: [:create]
   skip_before_action :verify_authenticity_token
 
+       def new
+           @lesson = Lesson.new
+        end
+    
    def show    
     @lesson = current_lesson    
   end
@@ -13,6 +18,7 @@ class Instructor::LessonsController < ApplicationController
     @lesson = current_section.lessons.create(lesson_params)
     redirect_to instructor_course_path(current_section.course)
   end
+  
 
   def update
     current_lesson.update_attributes(lesson_params)
@@ -37,7 +43,6 @@ class Instructor::LessonsController < ApplicationController
     end
   end
 
-  helper_method :current_section
   def current_section
     @current_section ||= Section.find(params[:section_id])
   end
