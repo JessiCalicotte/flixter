@@ -3,7 +3,7 @@
         $('.new-lesson-button').click(function( event ) {
       var lessonUrl = $( event.target).data('lesson-url');
       $('#newLessonForm').attr('action', lessonUrl);
-    }
+    });
     }); 
 
 
@@ -33,7 +33,7 @@
         });
       }
     });
-    
+
 </script>
 
   <br />
@@ -47,6 +47,8 @@
                         <%= link_to 'Add a new section...', instructor_course_sections_path(current_course), class: 'btn btn-primary btn-lg' %>
                    </div>
                </div>
+             </div>
+           </div>
 
 
      <div class="text-center">
@@ -100,26 +102,23 @@
     <%= current_course.description %>
 <!-- Modal -->
 <div class="modal fade" id="newSectionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <h4 class="modal-title" id="newSectionModalLabel">Add a new section</h4>
-            </div>
-            <%= simple_form_for @section, url: instructor_course_sections_path(current_course) do |f| %>
-            <div class="modal-body">
-                <%= f.input :title %>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <%= f.submit "Add a section", class: 'btn btn-primary' %>
-                </div>
-            </div>
-            <% end %>
-        </div>
-    </div>
-</div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="newSectionModalLabel">Add a new section</h4>
+      </div>
+      <%= simple_form_for @section, url: instructor_course_sections_path(current_course) do |f| %>
+        <div class="modal-body">
+          <%= f.input :title %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add a section", class: 'btn btn-primary' %>
+   </div>
+  </div>
+ <% end %>
 
 <!-- Modal -->
 <div class="modal fade" id="newLessonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
