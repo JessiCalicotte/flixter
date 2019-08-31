@@ -119,7 +119,7 @@
         <span aria-hidden="true">×</span>
         </button>
     </div>
-         <%= simple_form_for @lesson, url: "#", html: {id: 'newLessonForm' } do |f| %>
+         <%= simple_form_for @lesson, url: "instructor_section_lessons_path", html: {id: 'newLessonForm' } do |f| %>
         <div class="modal-body">        
           <%= f.input :title %>
           <%= f.input :subtitle %>
