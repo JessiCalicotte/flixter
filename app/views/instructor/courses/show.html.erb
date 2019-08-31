@@ -35,13 +35,12 @@
                 <br /><br />
             <%= link_to 'Preview As Student...', course_path(current_course), class: 'btn btn-warning float-right' %>
           <br class="clr" />
-<% end %>
         <div class="text-center">
             <%= link_to 'Add a new section...', instructor_course_sections_path(current_course), class: 'btn btn-primary btn-lg' %>
         </div>
       </div>
+      <!-- Button trigger modal -->
      <div class="text-center">
-    <!-- Button trigger modal -->
          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newSectionModal">
           Add a new section...
         </button>
