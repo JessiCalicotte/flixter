@@ -3,8 +3,8 @@ class Instructor::LessonsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :require_authorized_for_current_section, only: [:create]
   before_action :require_authorized_for_current_lesson, only: [:update]
-  before_action :require_authorized_for_current_lesson, only: [:show]
-  before_action :require_authorized_for_current_lesson, only: [:create]
+  
+  
 
   def create
     @lesson = current_section.lessons.create(lesson_params)
