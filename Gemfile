@@ -26,7 +26,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
+gem "mini_magick"
+gem 'carrierwave-aws'
+gem 'stripe'
+gem 'ranked-model'
+gem 'figaro'
+gem 'ranked-model'
+gem 'jquery-ui-rails'
+gem "font-awesome-rails"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -68,15 +76,7 @@ gem 'devise'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
-gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
-gem "mini_magick"
-gem 'carrierwave-aws'
-gem 'stripe'
-gem 'ranked-model'
-gem 'figaro'
-gem 'ranked-model'
-gem 'jquery-ui-rails'
-gem "font-awesome-rails"
+
 
 
 

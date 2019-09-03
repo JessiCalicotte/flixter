@@ -1,3 +1,4 @@
+@import "bootstrap";
 @import "font-awesome";
 
 .navbar {
@@ -37,11 +38,13 @@ h1, h2, h3, h4, h5, h6, .navbar {
 .frosty h1 {
   font-family: "Helvetica Neue", Helvetica;
   font-weight: 100;
+  font-color: white;
   text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
 }
 .frosty h2 {
   font-family: "Helvetica Neue", Helvetica;
   font-weight: 200;
+  font-color: white;
   text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
 }
 .btn {
@@ -82,11 +85,13 @@ body {
 }
 .lesson {
   background-color: black;
+  font-color: white;
   margin-top: 10px;
   height: 130px;
 }
 .section {
   border: 1px solid;
+  font-color: white;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   padding: 20px;
 }
@@ -123,8 +128,10 @@ ul .header .fa {
   font-weight: 100;
   padding: 8px;
   font-size: 15px;
+  font-color: white;
 }
 .lessons li b {
+  font-color: white;
   font-size: 25px;
   font-weight: 100;
 }

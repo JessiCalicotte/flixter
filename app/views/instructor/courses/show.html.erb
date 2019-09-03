@@ -39,7 +39,7 @@
                 <br /><br />
             <%= link_to 'Preview As Student...', course_path(current_course), class: 'btn btn-warning float-right' %>
           <br class="clr" />
-        
+
       <!-- Button trigger modal -->
      <div class="text-center">
          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newSectionModal">
@@ -73,6 +73,25 @@
                            <p>
                            <b><%= lesson.title %></b>
                            </p>
+                              <% if lesson.next_lesson.present? %>
+        <%= link_to lesson_path(lesson.next_lesson), class: 'btn btn-default float-right' do %>
+      Next Lesson &nbsp;
+      <span class="fa fa-forward"></span>
+    <% end %>
+<% end %>
+  <br class="clr" />
+  <br />
+
+    <video id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" width="auto" height="auto"
+  poster="<%= image_path('black.jpg') %>" data-setup="{}">
+    <source src="<%= lesson.video.to_s %>" type='video/mp4'>    
+      <noscript>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </noscript>
+  </video>
                        <% end %>
                           <hr class="lessons">
                           <p>
@@ -89,6 +108,7 @@
               <% end %>
             </ul>
           </div>
+          <br />
 <!-- Modal -->
       <div class="modal fade" id="newSectionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
